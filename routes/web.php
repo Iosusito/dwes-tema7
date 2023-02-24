@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CortoController;
+use App\Http\Controllers\DirectorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('cortos', CortoController::class)->only(['index', 'show']);
+Route::resource('directores', DirectorController::class)->only(['create', 'store']);

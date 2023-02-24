@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Corto extends Model
 {
     use HasFactory;
+
+    public function director()
+    {
+        return $this->belongsTo(Director::class);
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

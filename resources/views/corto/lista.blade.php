@@ -5,10 +5,10 @@
 @section('contenido')
 @forelse ($cortos as $corto)
 <h2>{{ $corto->titulo }}</h2>
-<small>{{ $corto->director }}</small>
-<p>{{ $corto->sinapsis }}</p>
+<small>{{ $corto->director->nombre }} {{ $corto->director->apellidos }}</small>
+<p>{{ $corto->sinopsis }}</p>
 
-<a href="{{ route('cortos.show', $corto->id]) }}">Detalles</a>
+<a href="{{ route('cortos.show', $corto->id) }}">Detalles</a>
 <hr>
 @empty
 <p>No hay cortos actualmente</p>

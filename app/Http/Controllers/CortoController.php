@@ -14,7 +14,8 @@ class CortoController extends Controller
      */
     public function index()
     {
-        //
+        $cortos = Corto::with('director')->orderBy('created_at')->get();
+        return view('corto.lista', compact('cortos'));
     }
 
     /**
@@ -44,9 +45,10 @@ class CortoController extends Controller
      * @param  \App\Models\Corto  $corto
      * @return \Illuminate\Http\Response
      */
-    public function show(Corto $corto)
+    public function show(int $id)
     {
-        //
+        $corto = Corto::with('usuario')->with('director')->findOrFail($id);
+        return view('corto.detalle', compact('corto'));
     }
 
     /**
